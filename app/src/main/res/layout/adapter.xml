@@ -17,7 +17,7 @@
             android:layout_height="55dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            tools:src="@android:color/darker_gray"/>
+            android:src="@mipmap/ic_launcher"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_toEndOf="@+id/img_item_photo">
 
             <TextView
-                android:id="@+id/txtksjadflk"
+                android:id="@+id/txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama"
@@ -35,9 +35,10 @@
                 android:layout_marginBottom="8dp"/>
 
             <TextView
+                android:id="@+id/txt_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keterangan" />
+                android:text="Keterangan"/>
 
         </LinearLayout>
     </RelativeLayout>
