@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btnlogin;
     private TextView link_regist;
-    private static String URL_LOGIN = "http://192.168.100.5/android_register_login/login.php";
+    private static String URL_LOGIN = "http://192.168.100.9/android_register_login/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         link_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Register.class));
+                startActivity(new Intent(Login.this, Register.class));
             }
         });
 
@@ -95,20 +95,20 @@ public class MainActivity extends AppCompatActivity {
                                     editor.putString("status", "login");
                                     editor.apply();
 
-                                    startActivity(new Intent(getApplicationContext(), CardView.class));
+                                    startActivity(new Intent(getApplicationContext(), MainMenu.class));
                                     finish();
                                 }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(MainActivity.this, "Error " +e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "Error " +e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, "Error " +error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Error " +error.toString(), Toast.LENGTH_LONG).show();
                     }
                 })
         {

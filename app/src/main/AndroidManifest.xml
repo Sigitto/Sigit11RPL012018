@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ListData"></activity>
+        <activity android:name=".DataAdapter" />
         <activity android:name=".ControlClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register">
-        </activity>
-        <activity android:name=".CardView" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".Login" />
     </application>
 
 </manifest>

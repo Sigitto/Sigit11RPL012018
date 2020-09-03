@@ -20,7 +20,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,7 +63,7 @@ public class Register extends AppCompatActivity {
                         String success = jsonObject.getString("success");
 
                         if (success.equals("1")){
-                            Intent intent = new Intent(Register.this, MainActivity.class);
+                            Intent intent = new Intent(Register.this, Login.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
