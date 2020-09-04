@@ -15,7 +15,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.adapter);
+        setContentView(R.layout.main_menu);
         menu1 = (CardView)findViewById(R.id.menu1);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override

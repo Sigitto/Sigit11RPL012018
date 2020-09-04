@@ -109,9 +109,9 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
 
                 case 2:
                     //Do stuff
-
                     break;
             }
+
             return true;
         }
     };
