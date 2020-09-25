@@ -15,14 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailMovie"></activity>
+        <activity android:name=".MovieFavourite"></activity>
+        <activity android:name=".DetailMovie" />
         <activity android:name=".ListData" />
         <activity android:name=".DataAdapter" />
-        <activity android:name=".ControlClass">
-
-        </activity>
+        <activity android:name=".ControlClass"></activity>
         <activity android:name=".Register" />
-        <activity android:name=".MainMenu" >
+        <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

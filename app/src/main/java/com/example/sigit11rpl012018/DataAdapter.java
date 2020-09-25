@@ -1,10 +1,9 @@
 package com.example.sigit11rpl012018;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
+import android.content.Context;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -20,11 +19,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHolder> {
 
     private ArrayList<Model> dataList;
     private Callback callback;
+    Context context;
     View viewku;
     int posku;
 
@@ -35,8 +36,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
 
 
     public DataAdapter(ArrayList<Model> dataList, Callback callback) {
-        this.callback = callback;
         this.dataList = dataList;
+        this.callback = callback;
         Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");
     }
 

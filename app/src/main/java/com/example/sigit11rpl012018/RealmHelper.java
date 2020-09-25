@@ -2,7 +2,11 @@ package com.example.sigit11rpl012018;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class RealmHelper {
     Realm realm;
@@ -32,4 +36,10 @@ public class RealmHelper {
             }
         });
     }
+    // untuk memanggil semua data
+    public List<ModelMovieRealm> getAllMovie(){
+        RealmResults<ModelMovieRealm> results = realm.where(ModelMovieRealm.class).findAll();
+        return results;
+    }
+
 }

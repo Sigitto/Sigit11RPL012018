@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
 public class ListData extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -39,43 +40,43 @@ public class ListData extends AppCompatActivity {
         addDataOnline();
     }
 
-    private void addData() {
-        //offline, isi data offline dulu
-        DataArrayList = new ArrayList<>();
-        Model data1 = new Model();
-        data1.setOriginal_title("Judul Film");
-        data1.setPoster_path("https://image.tmdb.org/t/p/w500/uOw5JD8IlD546feZ6oxbIjvN66P.jpg");
-        data1.setAdult(false);
-        data1.setOverview("Deskripsi Film disini");
-        data1.setVote_count(134);
-        data1.setRelease_date("01-01-2020");
-        DataArrayList.add(data1);
-
-        adapter = new DataAdapter(DataArrayList, new DataAdapter.Callback() {
-            @Override
-            public void onClick(int position) {
-                Model movie =  DataArrayList.get(position);
-                Intent intent = new Intent(getApplicationContext(), DetailMovie.class);
-                intent.putExtra("judul", movie.original_title);
-                intent.putExtra("date", movie.release_date);
-                intent.putExtra("deskripsi", movie.overview);
-                intent.putExtra("path", movie.poster_path);
-                startActivity(intent);
-                Toast.makeText(ListData.this, "" + position, Toast.LENGTH_LONG);
-
-            }
-
-            @Override
-            public void test() {
-
-            }
-        });
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-    }
+//    private void addData() {
+//        //offline, isi data offline dulu
+//        DataArrayList = new ArrayList<>();
+//        Model data1 = new Model();
+//        data1.setOriginal_title("Judul Film");
+//        data1.setPoster_path("https://image.tmdb.org/t/p/w500/uOw5JD8IlD546feZ6oxbIjvN66P.jpg");
+//        data1.setAdult(false);
+//        data1.setOverview("Deskripsi Film disini");
+//        data1.setVote_count(134);
+//        data1.setRelease_date("01-01-2020");
+//        DataArrayList.add(data1);
+//
+//        adapter = new DataAdapter(DataArrayList, new DataAdapter.Callback() {
+//            @Override
+//            public void onClick(int position) {
+//                Model movie =  DataArrayList.get(position);
+//                Intent intent = new Intent(getApplicationContext(), DetailMovie.class);
+//                intent.putExtra("judul", movie.original_title);
+//                intent.putExtra("date", movie.release_date);
+//                intent.putExtra("deskripsi", movie.overview);
+//                intent.putExtra("path", movie.poster_path);
+//                startActivity(intent);
+//                Toast.makeText(ListData.this, "" + position, Toast.LENGTH_LONG);
+//
+//            }
+//
+//            @Override
+//            public void test() {
+//
+//            }
+//        });
+//
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(adapter);
+//
+//    }
 
     void addDataOnline(){
         //data online
