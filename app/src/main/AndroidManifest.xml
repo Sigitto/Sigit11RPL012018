@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sigit11rpl012018">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -15,18 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MovieFavourite"></activity>
+        <activity android:name=".ListDataFavourite"></activity>
         <activity android:name=".DetailMovie" />
         <activity android:name=".ListData" />
-        <activity android:name=".DataAdapter" />
-        <activity android:name=".ControlClass"></activity>
-        <activity android:name=".Register" />
-        <activity android:name=".MainMenu">
+        <activity android:name=".ControlClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".MainMenu">
         </activity>
         <activity android:name=".Login" />
     </application>

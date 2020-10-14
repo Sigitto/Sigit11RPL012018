@@ -51,6 +51,7 @@ public class DetailMovie extends AppCompatActivity {
             date = extras.getString("date");
             deskripsi = extras.getString("deskripsi");
             path = extras.getString("path");
+
             tvjudul.setText(title);
             tvdesc.setText(deskripsi);
             Glide.with(DetailMovie.this)

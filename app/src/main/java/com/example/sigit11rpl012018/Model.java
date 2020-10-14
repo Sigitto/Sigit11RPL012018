@@ -9,6 +9,7 @@ public class Model {
     String overview;
     int vote_count;
     int id;
+    String vote_average;
 
     public int getId() {
         return id;
@@ -64,5 +65,13 @@ public class Model {
 
     public void setVote_count(int vote_count) {
         this.vote_count = vote_count;
+    }
+
+    public void setVote_average(String vote_average){
+        this.vote_average = vote_average;
+    }
+
+    public String getVote_average(){
+        return vote_average;
     }
 }

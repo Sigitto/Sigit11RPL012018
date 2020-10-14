@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
@@ -51,11 +52,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
         holder.txtNama.setText(dataList.get(position).getOriginal_title());
+        holder.txtDate.setText(dataList.get(position).getRelease_date());
         holder.txtNpm.setText(dataList.get(position).getOverview());
         Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getPoster_path());
         Glide.with(holder.itemView)
                 .load(dataList.get(position).getPoster_path())
                 .override(Target.SIZE_ORIGINAL)
+//                .apply(new RequestOptions().override(600,300))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.ivprofile);
 
@@ -67,7 +70,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
     }
 
     public class DatakuViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
-        private TextView txtNama, txtNpm;
+        private TextView txtNama, txtNpm, txtDate;
         CardView card;
         ImageView ivprofile;
 
@@ -78,6 +81,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
             ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
             txtNama = (TextView) itemView.findViewById(R.id.tvname);
             txtNpm = (TextView) itemView.findViewById(R.id.tvdesc);
+            txtDate = (TextView)itemView.findViewById(R.id.tvdate);
             itemView.setOnCreateContextMenuListener(this);
 
             itemView.setOnClickListener(new View.OnClickListener() {

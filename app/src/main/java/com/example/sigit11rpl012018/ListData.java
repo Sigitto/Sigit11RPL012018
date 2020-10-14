@@ -106,6 +106,7 @@ public class ListData extends AppCompatActivity {
                                 modelku.setAdult(jsonObject.getBoolean("adult"));
                                 modelku.setOverview(jsonObject.getString("overview"));
                                 modelku.setVote_count(jsonObject.getInt("vote_count"));
+                                modelku.setVote_average(jsonObject.getString("vote_average"));
                                 DataArrayList.add(modelku);
 
                             }
@@ -119,6 +120,7 @@ public class ListData extends AppCompatActivity {
                                     intent.putExtra("date", movie.release_date);
                                     intent.putExtra("deskripsi", movie.overview);
                                     intent.putExtra("path", movie.poster_path);
+                                    intent.putExtra("vote_average", movie.vote_average);
                                     startActivity(intent);
                                     Toast.makeText(ListData.this, "" + position, Toast.LENGTH_LONG);
                                 }

@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.List;
@@ -37,11 +38,13 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull FavouriteAdapter.MyViewHolder holder, int position) {
         holder.txtNama.setText(movieModel.get(position).getJudul());
+        holder.txtDate.setText(movieModel.get(position).getReleaseDate());
         holder.txtNpm.setText(movieModel.get(position).getDesc());
         Log.d("makananku", "onBindViewHolder: "+movieModel.get(position).getPath());
         Glide.with(holder.itemView)
                 .load(movieModel.get(position).getPath())
                 .override(Target.SIZE_ORIGINAL)
+//                .apply(new RequestOptions().override(600, 300))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.ivprofile);
     }
@@ -52,7 +55,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtNama, txtNpm;
+        private TextView txtNama, txtNpm, txtDate;
         CardView card;
         ImageView ivprofile;
         public MyViewHolder(@NonNull View itemView) {
@@ -61,6 +64,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.MyVi
             ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
             txtNama = (TextView) itemView.findViewById(R.id.tvname);
             txtNpm = (TextView) itemView.findViewById(R.id.tvdesc);
+            txtDate = (TextView)itemView.findViewById(R.id.tvdate);
         }
     }
 }

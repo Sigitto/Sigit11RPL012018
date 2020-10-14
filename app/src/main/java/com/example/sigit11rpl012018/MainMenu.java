@@ -27,7 +27,7 @@ public class MainMenu extends AppCompatActivity {
         menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MovieFavourite.class));
+                startActivity(new Intent(getApplicationContext(), ListDataFavourite.class));
             }
         });
     }

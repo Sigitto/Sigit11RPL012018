@@ -12,7 +12,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class MovieFavourite extends AppCompatActivity {
+public class ListDataFavourite extends AppCompatActivity {
 
     Realm realm;
     RealmHelper realmHelper;

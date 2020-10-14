@@ -17,8 +17,8 @@ public class ControlClass extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
 
-        if (sharedPreferences.getString("email", "").isEmpty() ||
-                sharedPreferences.getString("email", "").equalsIgnoreCase("")){
+        if (sharedPreferences.getString("username", "").isEmpty() ||
+                sharedPreferences.getString("username", "").equalsIgnoreCase("")){
             //login dulu
             startActivity(new Intent(getApplicationContext(), Login.class));
             finish();

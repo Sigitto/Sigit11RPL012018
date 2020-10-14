@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
 
     private EditText txtemail, txtname, txtpassword, txt_cpass;
     private Button btnregister;
-    private static String URL_REGISTER = "http://192.168.100.9/android_register_login/register.php";
+//    private static String URL_REGISTER = "http://192.168.100.9/android_register_login/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,53 +43,53 @@ public class Register extends AppCompatActivity {
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Register();
+//                Register();
             }
         });
 
     }
-
-    private void Register(){
-        final String name = this.txtname.getText().toString().trim();
-        final String email = this.txtemail.getText().toString().trim();
-        final String password = this.txtpassword.getText().toString().trim();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGISTER,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        String success = jsonObject.getString("success");
-
-                        if (success.equals("1")){
-                            Intent intent = new Intent(Register.this, Login.class);
-                            startActivity(intent);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(Register.this, "Register Error" + e.toString(), Toast.LENGTH_LONG).show();
-                    }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-    }
+//
+//    private void Register(){
+//        final String name = this.txtname.getText().toString().trim();
+//        final String email = this.txtemail.getText().toString().trim();
+//        final String password = this.txtpassword.getText().toString().trim();
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGISTER,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(response);
+//                        String success = jsonObject.getString("success");
+//
+//                        if (success.equals("1")){
+//                            Intent intent = new Intent(Register.this, Login.class);
+//                            startActivity(intent);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(Register.this, "Register Error" + e.toString(), Toast.LENGTH_LONG).show();
+//                    }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                })
+//        {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("name", name);
+//                params.put("email", email);
+//                params.put("password", password);
+//                return params;
+//            }
+//        };
+//        RequestQueue requestQueue = Volley.newRequestQueue(this);
+//        requestQueue.add(stringRequest);
+//
+//    }
 }
