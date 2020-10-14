@@ -23,9 +23,9 @@ public class MovieFavourite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_favourite);
+        setContentView(R.layout.activity_list_data);
 
-        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.rvdata);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
