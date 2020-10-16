@@ -26,7 +26,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
 
     private ArrayList<Model> dataList;
     private Callback callback;
-    Context context;
     View viewku;
     int posku;
 

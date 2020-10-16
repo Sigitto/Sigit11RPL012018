@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ public class ListDataFavourite extends AppCompatActivity {
 
     Realm realm;
     RealmHelper realmHelper;
-    RecyclerView recyclerView;
-    FavouriteAdapter adapter;
-    List<ModelMovieRealm> modelMovie;
+   private RecyclerView recyclerView;
+   private FavouriteAdapter adapter;
+   private List<ModelMovieRealm> modelMovie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +27,38 @@ public class ListDataFavourite extends AppCompatActivity {
         setContentView(R.layout.activity_list_data);
 
         recyclerView = findViewById(R.id.rvdata);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
 
         // Setup Realm
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
-
         realmHelper = new RealmHelper(realm);
+
         modelMovie = new ArrayList<>();
 
         modelMovie = realmHelper.getAllMovie();
 
-        show();
-    }
+        adapter = new FavouriteAdapter(modelMovie, new FavouriteAdapter.Callback() {
+            @Override
+            public void onClick(int position) {
+                Intent move = new Intent(getApplicationContext(), DetailFavourite.class);
+                move.putExtra("judul",modelMovie.get(position).getJudul());
+                move.putExtra("path",modelMovie.get(position).getPath());
+                move.putExtra("date",modelMovie.get(position).getReleaseDate());
+                move.putExtra("deskripsi",modelMovie.get(position).getDesc());
 
-    public void show(){
-        adapter = new FavouriteAdapter(this, modelMovie);
+                startActivity(move);
+            }
+
+            @Override
+            public void test() {
+
+            }
+        });
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
+
+
 }
